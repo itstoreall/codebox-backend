@@ -1,0 +1,27 @@
+{
+  "name": "codebox-backend",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/itstoreall/codebox-backend.git",
+  "author": "<serhiistanislav@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "express": "^4.17.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.3.0",
+    "nodemon": "^2.0.15",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "dotenv": "^15.0.0",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-json": "^3.1.0"
+  }
+}
