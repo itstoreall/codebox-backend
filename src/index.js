@@ -2,10 +2,29 @@ import 'dotenv/config';
 import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
 import cors from 'cors';
+import db from './db/models/index.js';
 import schema from './schema/schema.js';
-import { v4 as uuid } from 'uuid';
 
-const db = [
+const { view, link } = db;
+
+// view
+//   .create({
+//     title: 'test_2',
+//     path: 'test_2',
+//     timestamp: Date.now(),
+//   })
+//   .then(res => console.log(res));
+
+// link
+//   .create({
+//     href: 'test_2',
+//     anchor: 'test_2',
+//     source: 'test_2',
+//     timestamp: Date.now(),
+//   })
+//   .then(res => console.log(res));
+
+const dbArr = [
   {
     id: 'v1',
     title: 'Home',
@@ -141,19 +160,20 @@ const createView = input => {
 // resolver
 const root = {
   getAllViews: () => {
-    return db;
+    return dbArr;
   },
   getView: ({ id }) => {
-    return db.find(view => view.id == id);
+    return dbArr.find(view => view.id == id);
   },
   createView: ({ input }) => {
     const view = createView(input);
-    db.push(view);
+    dbArr.push(view);
     return view;
   },
 };
 
 app.use(cors());
+app.use(express.json());
 app.use(
   '/graphql',
   graphqlHTTP({
