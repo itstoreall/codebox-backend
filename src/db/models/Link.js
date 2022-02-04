@@ -1,7 +1,7 @@
 import DataType from 'sequelize';
 
 export default sequelize => {
-  return sequelize.define(
+  const Link = sequelize.define(
     'Link',
     {
       id: {
@@ -39,4 +39,6 @@ export default sequelize => {
       timestamps: false,
     }
   );
+
+  return Link;
 };

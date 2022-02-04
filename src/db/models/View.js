@@ -1,7 +1,7 @@
 import DataType from 'sequelize';
 
 export default sequelize => {
-  return sequelize.define(
+  const View = sequelize.define(
     'View',
     {
       id: {
@@ -16,11 +16,13 @@ export default sequelize => {
         type: DataType.STRING,
         allowNull: false,
         field: 'title',
+        unique: true,
       },
       path: {
         type: DataType.STRING,
         allowNull: false,
         field: 'path',
+        unique: true,
       },
       timestamp: {
         type: DataType.STRING,
@@ -34,4 +36,6 @@ export default sequelize => {
       timestamps: false,
     }
   );
+
+  return View;
 };

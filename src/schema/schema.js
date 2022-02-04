@@ -5,6 +5,7 @@ const schema = buildSchema(`
     id: ID
     title: String
     path: String
+    timestamp: String
     links: [Link]
   }
 
@@ -13,6 +14,7 @@ const schema = buildSchema(`
     href: String
     anchor: String
     source: String
+    timestamp: String
   }
 
   input ViewInput {
@@ -36,6 +38,7 @@ const schema = buildSchema(`
   
   type Mutation {
     createView(input: ViewInput): View
+    createLink(input: LinkInput): Link
   }
 `);
 
