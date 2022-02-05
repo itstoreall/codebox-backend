@@ -4,8 +4,8 @@ import view from './View.js';
 import link from './Link.js';
 
 const sequelize = new Sequelize('codebox_db', '', '', {
-  dialect: process.env.POSTGRES_DIALECT,
-  host: process.env.POSTGRES_HOST,
+  dialect: 'postgres',
+  host: 'https://codebox-backend.herokuapp.com',
 });
 
 const View = view(sequelize);
