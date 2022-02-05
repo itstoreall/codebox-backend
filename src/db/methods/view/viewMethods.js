@@ -1,9 +1,9 @@
-import dbArr from '../dbArr.js';
+// import dbArr from '../dbArr.js';
 import db from '../../models/index.js';
 
 const { view: View } = db;
 
-const createNewView = input => {
+const createNewObject = input => {
   const id = Date.now();
   return {
     id,
@@ -22,7 +22,7 @@ const viewMethods = () => {
 
     createView: ({ input }) => {
       try {
-        const newView = createNewView(input);
+        const newView = createNewObject(input);
 
         return View.create({
           title: newView.title,

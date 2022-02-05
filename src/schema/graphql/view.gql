@@ -1,0 +1,39 @@
+type View {
+  id: ID
+  title: String
+  path: String
+  timestamp: String
+  links: [Link]
+}
+
+type Link {
+  id: ID
+  href: String
+  anchor: String
+  source: String
+  timestamp: String
+}
+
+input ViewInput {
+  id: ID
+  title: String!
+  path: String!
+  links: [LinkInput]
+}
+
+input LinkInput {
+  id: ID
+  href: String!
+  anchor: String!
+  source: String!
+}
+
+extend type Query {
+  getAllViews: [View]
+  getView(id: ID): View
+}
+
+extend type Mutation {
+  createView(input: ViewInput): View
+  createLink(input: LinkInput): Link
+}
