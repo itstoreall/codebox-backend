@@ -20,7 +20,7 @@ mutation {
   }
 }
 
------------------------- Methods ------------------------
+----------------------- Methods: -----------------------
 
 export const getAllViews = () => {
     return db;
@@ -42,5 +42,35 @@ export const createView = ({ input }) => {
     console.error('ERROR in createView:', err.message);
   }
 },
+
+----------------------- Errors: -----------------------
+
+1.
+Error: listen EADDRINUSE: address already in use :::8822
+
+if you have this:
+"scripts": {
+  "dev": "nodemon --exec babel-node src/index.js",
+  "start": "node --exec babel-node src/index.js"
+},
+
+Solution: 
+To find the process id (PID) associated with the port
+
+=> lsof -i tcp:8822 
+
+Then to kill the process
+
+=> kill -9 44475
+or
+=> sudo kill -9 44475
+
+======================= Links: =========================
+
+Build a GraphQL Server with Node.js and MongoDB 
+https://youtu.be/YFkJGEefgU8
+
+Kill the process
+shorturl.at/joBNU
 
 */

@@ -1,4 +1,3 @@
-// import dbArr from '../dbArr.js';
 import db from '../../models/index.js';
 
 const { view: View } = db;
