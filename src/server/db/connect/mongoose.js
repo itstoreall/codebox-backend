@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import View from '../models/mongoose/View.js';
 
-const connectMongoose = dbName => {
+const connectMongoose = () => {
   const uri = process.env.MONGOOSE_URI_DB;
 
   const db = mongoose.connect(uri, { maxPoolSize: 5 });
