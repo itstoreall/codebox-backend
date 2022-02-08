@@ -2,21 +2,36 @@
 
 query {
   getAllViews {
-    id, title, path, links {
-      id, href, anchor, source
-    }
+    id, title
+  }
+}
+
+{
+  getView(id: "620134773cbe3c96e44f89d2") {
+    title
+  }
+}
+
+mutation CreateView {
+  createView(input: {title: "Jinny", path: "Dinke"}) {
+    id
+    title
   }
 }
 
 mutation {
-  createView(input: {
-    title: "Netflix view"
-    path: "netflix.com"
-    links: [
-      {id: 1, href: "/netflix", anchor: "Netflix", source: "git.com" }
-    ]
-  }) {
-    id, title, path, links {id, href, anchor, source}
+  deleteView(id: "62025f21b4c8d05a8e135728") {
+    id
+    title
+  }
+}
+
+mutation {
+  updateView(id: "62025f59b4c8d05a8e13572f", input: {
+    title: "Vika", path: "github.com"
+    }) {
+    id
+    title
   }
 }
 
@@ -47,12 +62,6 @@ export const createView = ({ input }) => {
 
 1.
 Error: listen EADDRINUSE: address already in use :::8822
-
-if you have this:
-"scripts": {
-  "dev": "nodemon --exec babel-node src/index.js",
-  "start": "node --exec babel-node src/index.js"
-},
 
 Solution: 
 To find the process id (PID) associated with the port

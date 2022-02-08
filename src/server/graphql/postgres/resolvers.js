@@ -1,4 +1,4 @@
-import db from '../../models/index.js';
+import db from '../../db/connect/index.js';
 
 const { view: View } = db;
 
@@ -10,7 +10,7 @@ const createNewObject = input => {
   };
 };
 
-const viewMethods = () => {
+const resolvers = () => {
   return {
     getAllViews: () => View.findAll(),
 
@@ -35,4 +35,4 @@ const viewMethods = () => {
   };
 };
 
-export default viewMethods;
+export default resolvers;

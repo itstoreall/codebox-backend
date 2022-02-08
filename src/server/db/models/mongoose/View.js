@@ -42,10 +42,10 @@ const viewSchema = new Schema(
   }
 );
 
-viewSchema.path('title').validate(value => {
-  const reg = /[A-Z]\w+/;
-  return reg.test(String(value));
-});
+// viewSchema.path('title').validate(value => {
+//   const reg = /[A-Z]\w+/;
+//   return reg.test(String(value));
+// });
 
 const View = mongoose.model('view', viewSchema);
 
